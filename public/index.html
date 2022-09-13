@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <title>News Today</title>
+</head>
+
+<body>
+  <div
+    style="height: 50vh; background-image: url(./assets/img/background.png); background-repeat: no-repeat; background-size: cover; background-position: right;"
+    class="container-fluid d-flex flex-column align-items-center justify-content-center ms-0">
+
+    <h1>News Today</h1>
+
+    <div class="container d-flex flex-column justify-content-center align-items-center mt-5">
+      <div class="input-group">
+        <input type="text" class="form-control news" placeholder="Search for a News" aria-label="Search for a News"
+          aria-describedby="button-addon2">
+        <button class="btn btn-success" type="button" id="button-addon2">Search</button>
+      </div>
+
+      <div id="errorDiv" class="container"></div>
+
+      <p class="mb-1 mt-5">Select the language of the news</p>
+      <select class="form-select w-25 mt-2" aria-label="Default select example">
+        <option selected class="language" value="pt">Portuguese</option>
+        <option class="language" value="en">English</option>
+        <option class="language" value="es">Spanish</option>
+        <option class="language" value="ar">Arabic</option>
+        <option class="language" value="de">German</option>
+        <option class="language" value="fr">French</option>
+        <option class="language" value="he">Hebrew</option>
+        <option class="language" value="it">Italian</option>
+        <option class="language" value="nl">Dutch</option>
+        <option class="language" value="no">Norwegian</option>
+        <option class="language" value="ru">Russian</option>
+        <option class="language" value="sv">Swedish</option>
+        <option class="language" value="zh">Chinese</option>
+      </select>
+
+    </div>
+
+  </div>
+
+
+  <section class="container-fluid d-flex mt-5 flex-wrap justify-content-center sec">
+
+  </section>
+  <script type="module" src="./main.js"></script>
+</body>
+
+</html>
