@@ -11,16 +11,18 @@ import FilterNews from "../src/filter.js";
   const divError = document.querySelector('#errorDiv');
   const filter = document.querySelector('#filter');
   const btnFilter = document.querySelector('#btnFilter');
+  const dateFilter = document.querySelector('#dateFilter');
+  const btnDateFilter = document.querySelector('#btnDate');
 
   btn.addEventListener('click', clickEventSearch());
-  btnFilter.addEventListener('click', clickEventFilter());
+  btnFilter.addEventListener('click', clickEventFilterAuthor());
+  btnDateFilter.addEventListener('click', clickEventFilterDate());
 
-
-  function clickEventFilter() {
+  function clickEventFilterAuthor() {
     return function () {
       resetNews();
-      validationFilter();
-      setTimeout(() => filteringNew(), 5);
+      validationFilterAuthor();
+      setTimeout(() => filteringNewAuthor(), 5);
     };
   };
 
@@ -33,15 +35,37 @@ import FilterNews from "../src/filter.js";
     };
   };
 
-  function filteringNew() {
+  function clickEventFilterDate() {
+    return function () {
+      resetNews();
+      validationFilterDate();
+      setTimeout(() => filteringNewDate(), 5);
+    };
+  };
+
+
+
+
+  function filteringNewAuthor() {
     const filteredNews = new FilterNews(filter);
     const createTemplate = new CreateTemplate(section);
 
-    filteredNews.filterNews(language, subject).then(res => {
+    filteredNews.filterNewsAuthor(language, subject).then(res => {
       res.map(obj => {
         createTemplate.createTemplate(obj);
       });
-    })
+    });
+  };
+
+  function filteringNewDate() {
+    const filteredNews = new FilterNews(dateFilter);
+    const createTemplate = new CreateTemplate(section);
+
+    filteredNews.filterNewsDate(language, subject).then(res => {
+      res.map(obj => {
+        createTemplate.createTemplate(obj);
+      });
+    });
   };
 
   function creatingNew() {
@@ -70,7 +94,7 @@ import FilterNews from "../src/filter.js";
     news.validationSubject(divError) || GetNews.requestNotAvailable(news.information(), section);
   };
 
-  function validationFilter() {
+  function validationFilterAuthor() {
     const filterNews = new FilterNews(filter);
     const paramsValidating = {
       language,
@@ -78,7 +102,18 @@ import FilterNews from "../src/filter.js";
       section,
     };
 
-    filterNews.validatingFilter(paramsValidating);
+    filterNews.validatingFilterAuthor(paramsValidating);
+  };
+
+  function validationFilterDate() {
+    const filterNews = new FilterNews(dateFilter);
+    const paramsValidating = {
+      language,
+      subject,
+      section,
+    };
+
+    filterNews.validatingFilterDate(paramsValidating);
   };
 
 })();

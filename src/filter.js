@@ -11,7 +11,7 @@ export default class FilterNews {
     return this.#filterWord.toLowerCase();
   };
 
-  async filterNews(language, subject) {
+  async filterNewsAuthor(language, subject) {
     const news = new GetNews(language, subject);
     const informationNews = await news.information();
 
@@ -23,11 +23,30 @@ export default class FilterNews {
     return filterNews;
   };
 
-  async validatingFilter({ language, subject, section }) {
-    const filteredNews = await this.filterNews(language, subject);
+  async filterNewsDate(language, subject) {
+    const news = new GetNews(language, subject);
+    const informationNews = await news.information();
+
+    const filterNews = informationNews.filter(({ publishedAt }) => {
+      return publishedAt === this.#filterWord;
+    });
+
+    return filterNews;
+  }
+
+  async validatingFilterAuthor({ language, subject, section }) {
+    const filteredNews = await this.filterNewsAuthor(language, subject);
 
     if (filteredNews.length === 0) {
       Html.createErrorFilter(section, 'No news found.');
     };
   };
+
+  async validatingFilterDate({ language, subject, section }) {
+    const filteredNewsDate = await this.filterNewsDate(language, subject);
+    
+    if (filteredNewsDate.length === 0) {
+      Html.createErrorFilter(section, 'No news found.');
+    };
+  }
 };
