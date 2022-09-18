@@ -8,7 +8,7 @@ import ResetTemplate from "../src/Reset.js";
   const subject = document.querySelector('.news');
   const section = document.querySelector('.sec');
   const divError = document.querySelector('#errorDiv');
-  
+
   btn.addEventListener('click', clickEvent());
 
   function clickEvent() {
@@ -28,6 +28,10 @@ import ResetTemplate from "../src/Reset.js";
       res.map(obj => {
         createTemplate.createTemplate(obj);
       });
+    });
+
+    news.lengtNews().then(length => {
+        createTemplate.length(length);
     });
   };
 

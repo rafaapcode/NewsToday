@@ -132,4 +132,18 @@ export default class Html {
     div.appendChild(secondDiv);
     section.appendChild(div);
   };
+
+  static infoLengthNews(Message) {
+    const div = document.createElement('div');
+    const divClassNames = ['container-fluid', 'd-flex', 'justify-content-center', 'm-0', 'p-0'];
+    CreatingAttribute.addingClassName(div, divClassNames);
+
+    const p = document.createElement('p');
+    p.innerText = `${Message} news found.`;
+    CreatingAttribute.addingClassName(p, ['text-muted']);
+
+    div.appendChild(p);
+
+    return div;
+  };
 };
