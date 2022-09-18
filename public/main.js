@@ -19,7 +19,8 @@ import FilterNews from "../src/filter.js";
   function clickEventFilter() {
     return function () {
       resetNews();
-      setTimeout(() => filteringNew(), 50);
+      validationFilter();
+      setTimeout(() => filteringNew(), 5);
     };
   };
 
@@ -28,7 +29,7 @@ import FilterNews from "../src/filter.js";
       ResetTemplate.resetError(divError);
       resetNews();
       validation();
-      setTimeout(() => creatingNew(), 50);
+      setTimeout(() => creatingNew(), 5);
     };
   };
 
@@ -67,6 +68,17 @@ import FilterNews from "../src/filter.js";
     const news = new GetNews(language, subject);
 
     news.validationSubject(divError) || GetNews.requestNotAvailable(news.information(), section);
+  };
+
+  function validationFilter() {
+    const filterNews = new FilterNews(filter);
+    const paramsValidating = {
+      language,
+      subject,
+      section,
+    };
+
+    filterNews.validatingFilter(paramsValidating);
   };
 
 })();

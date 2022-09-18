@@ -146,4 +146,23 @@ export default class Html {
 
     return div;
   };
+
+  static createErrorFilter(section, message) {
+    const div = document.createElement('div');
+    const divClassNames = [
+      'alert',
+      'alert-danger',
+      'd-flex',
+      'align-items-center'
+    ];
+    CreatingAttribute.addingClassName(div, divClassNames);
+    div.setAttribute('role', 'alert');
+
+    const divMessage = document.createElement('div');
+    divMessage.innerText = message;
+
+    div.appendChild(divMessage);
+
+    section.appendChild(div);
+  };
 };
