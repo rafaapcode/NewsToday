@@ -25,7 +25,10 @@
    - Magic Numbers e Strings ( Dar sentido as informações em Números e Strings )
    - Duplicação de código ( Utilizar o mesmo código várias vezes )
 
-
+#### Atualizações
+- Adicionei 2 funcionalidades de filtros :
+  - Filtrar por Autores.
+  - Filtrar por Data.
 
 https://user-images.githubusercontent.com/83471941/190033494-179268a5-1a61-45cc-a344-14812add04eb.mp4
 
