@@ -43,9 +43,6 @@ import FilterNews from "../src/filter.js";
     };
   };
 
-
-
-
   function filteringNewAuthor() {
     const filteredNews = new FilterNews(filter);
     const createTemplate = new CreateTemplate(section);

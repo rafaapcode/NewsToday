@@ -7,19 +7,17 @@ export default class FilterNews {
     this.#filterWord = filterWord.value;
   };
 
-  get filterWord() {
-    return this.#filterWord.toLowerCase();
-  };
-
   async filterNewsAuthor(language, subject) {
     const news = new GetNews(language, subject);
     const informationNews = await news.information();
 
     const filterNews = informationNews.filter(({ author }) => {
-      author = author.toLowerCase()
-      return author.includes(this.filterWord);
+      if(typeof author === 'string' && typeof this.#filterWord === 'string'){
+        const autor = author.toLocaleLowerCase();
+        const filterWord = this.#filterWord.toLocaleLowerCase();
+        return autor.includes(filterWord);
+      }
     });
-
     return filterNews;
   };
 
