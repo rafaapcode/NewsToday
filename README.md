@@ -36,3 +36,9 @@
 https://user-images.githubusercontent.com/83471941/190033494-179268a5-1a61-45cc-a344-14812add04eb.mp4
 
 # DEPOIS DA ATUALIZAÇÃO
+
+
+https://user-images.githubusercontent.com/83471941/190928096-53f09188-cff9-4af2-b235-9d99262562f1.mp4
+
+
+
