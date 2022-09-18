@@ -1,6 +1,7 @@
 import GetNews from "../src/GetNews.js";
 import CreateTemplate from "../src/CreateTemplate.js";
 import ResetTemplate from "../src/Reset.js";
+import FilterNews from "../src/filter.js";
 
 (function () {
   const btn = document.querySelector('.btn');
@@ -8,16 +9,38 @@ import ResetTemplate from "../src/Reset.js";
   const subject = document.querySelector('.news');
   const section = document.querySelector('.sec');
   const divError = document.querySelector('#errorDiv');
+  const filter = document.querySelector('#filter');
+  const btnFilter = document.querySelector('#btnFilter');
 
-  btn.addEventListener('click', clickEvent());
+  btn.addEventListener('click', clickEventSearch());
+  btnFilter.addEventListener('click', clickEventFilter());
 
-  function clickEvent() {
+
+  function clickEventFilter() {
+    return function () {
+      resetNews();
+      setTimeout(() => filteringNew(), 50);
+    };
+  };
+
+  function clickEventSearch() {
     return function () {
       ResetTemplate.resetError(divError);
       resetNews();
       validation();
-      setTimeout(() => creatingNew(), 50)
+      setTimeout(() => creatingNew(), 50);
     };
+  };
+
+  function filteringNew() {
+    const filteredNews = new FilterNews(filter);
+    const createTemplate = new CreateTemplate(section);
+
+    filteredNews.filterNews(language, subject).then(res => {
+      res.map(obj => {
+        createTemplate.createTemplate(obj);
+      });
+    })
   };
 
   function creatingNew() {
@@ -31,7 +54,7 @@ import ResetTemplate from "../src/Reset.js";
     });
 
     news.lengtNews().then(length => {
-        createTemplate.length(length);
+      createTemplate.length(length);
     });
   };
 

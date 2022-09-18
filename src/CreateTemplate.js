@@ -14,6 +14,6 @@ export default class CreateTemplate {
   };
 
   length(message) {
-    this.#section.insertAdjacentElement('beforebegin', Html.infoLengthNews(message));
-  }
+    this.#section.insertAdjacentElement('afterbegin', Html.infoLengthNews(message));
+  };
 };
